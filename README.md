@@ -16,6 +16,7 @@ A beautiful, vintage-styled web application for documenting wine tasting experie
 ### Prerequisites
 - Node.js (version 14 or higher)
 - npm
+- MongoDB (local or cloud instance)
 
 ### Installation
 
@@ -25,18 +26,37 @@ A beautiful, vintage-styled web application for documenting wine tasting experie
    cd wine-tasting-diary
    ```
 
-2. **Install dependencies**
+2. **Install client dependencies**
    ```bash
    cd client
    npm install
    ```
 
-3. **Start the development server**
+3. **Install server dependencies**
    ```bash
+   cd ../server
+   npm install
+   ```
+
+4. **Set up environment variables**
+   
+   Create `.env` files in both `client` and `server` directories (see DEPLOYMENT.md for details)
+
+5. **Start the development servers**
+   
+   **Terminal 1 - Start the backend:**
+   ```bash
+   cd server
+   npm run dev
+   ```
+   
+   **Terminal 2 - Start the frontend:**
+   ```bash
+   cd client
    npm start
    ```
 
-4. **Open your browser**
+6. **Open your browser**
    Navigate to `http://localhost:3000`
 
 ## 📝 Usage
@@ -59,6 +79,9 @@ The application features a sophisticated vintage aesthetic with:
 ## 🛠️ Technology Stack
 
 - **Frontend**: React, TypeScript, CSS3
+- **Backend**: Node.js, Express.js, TypeScript
+- **Database**: MongoDB with Mongoose
+- **Authentication**: JWT (JSON Web Tokens)
 - **Styling**: Custom CSS with vintage design
 - **State Management**: React Hooks (useState, useEffect)
 - **Build Tool**: Create React App
@@ -77,6 +100,15 @@ The application features a sophisticated vintage aesthetic with:
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
+## 🚀 Deployment
+
+For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md).
+
+### Quick Deploy Options:
+- **Vercel** (Frontend) + **Railway** (Backend) - Recommended for beginners
+- **Heroku** - Full-stack deployment
+- **Netlify** (Frontend) + **Render** (Backend) - Alternative option
 
 ## 📄 License
 
