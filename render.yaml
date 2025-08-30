@@ -29,5 +29,5 @@ services:
 
 databases:
   - name: wine-diary-db
-    databaseName: wine-diary
+    databaseName: wine_diary
     plan: free
