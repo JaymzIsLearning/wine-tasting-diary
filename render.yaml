@@ -1,0 +1,33 @@
+services:
+  # Backend API Service
+  - type: web
+    name: wine-diary-api
+    env: node
+    plan: free
+    buildCommand: cd server && npm install && npm run build
+    startCommand: cd server && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: MONGODB_URI
+        fromDatabase:
+          name: wine-diary-db
+          property: connectionString
+
+  # Frontend Static Site
+  - type: web
+    name: wine-diary-frontend
+    env: static
+    plan: free
+    buildCommand: cd client && npm install && npm run build
+    staticPublishPath: client/build
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://wine-diary-api.onrender.com
+
+databases:
+  - name: wine-diary-db
+    databaseName: wine-diary
+    plan: free
